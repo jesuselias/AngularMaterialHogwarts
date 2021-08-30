@@ -17,10 +17,11 @@ import { HufflepuffComponent } from './components/hufflepuff/hufflepuff.componen
 import { StudentComponent } from './components/student/student.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { CharacterComponent } from './components/character/character.component';
+import { StudentNewComponent } from './components/studentNew/studentNew.component';
 
 // Material
 import { MaterialModule } from './material.module';
-import { AddStudentComponent } from './components/add-student/add-student.component';
+import { AddStudentComponent } from './components/addStudent/addStudent.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AddStudentComponent } from './components/add-student/add-student.compon
     StudentComponent,
     TeachersComponent,
     CharacterComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    StudentNewComponent
   ],
   imports: [
     BrowserModule,

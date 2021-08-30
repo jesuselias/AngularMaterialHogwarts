@@ -2,12 +2,15 @@
   <div class="mat-elevation-z8">
     <br>
     <div class="center">
-    <div class="title">
       <h2>Personajes</h2>
+    </div>
+    <div class="center">
+    <div class="title">
+      <h2>Casa:</h2>
     </div>
   <div class="select">
   <mat-form-field appearance="fill">
-	  <mat-label>Casa</mat-label>
+	  <mat-label>Casa </mat-label>
 	  <mat-select [(value)]="selectedValue">
 	    <mat-option *ngFor="let casa of casas" [value]="casa.value">
 	      {{casa.viewValue}}

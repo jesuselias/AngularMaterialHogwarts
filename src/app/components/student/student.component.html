@@ -5,15 +5,18 @@
   <div *ngIf="spiner" class="center">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </div>
-
+    <br>
   <div>
+  <div class="containerbtnSolicitud">
+    <button mat-raised-button class="btnCrear" (click)="solicitud()">Solicitudes</button>
+  </div>
+  <div class="containerbtnCrear">
+    <button mat-raised-button class="btnCrear" (click)="openDialog()">Crear Estudiante</button>
+  </div>
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="openDialog()">Crear Estudiante</button>
-
-
 
     <div class="mat-elevation-z8">
       <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
@@ -37,8 +40,8 @@
 
         
         <ng-container matColumnDef="image">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Imagen </th>
-          <td mat-cell *matCellDef="let row"><img src="{{row.image}}"></td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> image </th>
+          <td mat-cell *matCellDef="let row"><img style="border-radius: 30px; "src="{{row.image}}"></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -52,6 +55,7 @@
 
       <mat-paginator [pageSizeOptions]="[4, 8]"></mat-paginator>
     </div>
+    <br>
   </div>
   
 </div>

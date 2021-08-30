@@ -2,7 +2,7 @@
 <div mat-dialog-content>
 
 	<div class="container">
-	  <form [formGroup]="formulario">
+	  <form [formGroup]="form" (ngSubmit)="AddItem()">
 	    
 	   <mat-form-field appearance="fill">
 	      <mat-label>Nombre</mat-label>
@@ -11,9 +11,9 @@
 	    </mat-form-field>
 	    <br>
 	    <mat-form-field appearance="fill">
-	      <mat-label>Casa</mat-label>
-	      <input required matInput placeholder="Casa" [(ngModel)]="newItem.house"
-	      		 formControlName="house" name="house">
+	      <mat-label>Patronus</mat-label>
+	      <input required matInput placeholder="patronus" [(ngModel)]="newItem.patronus"
+	      		 formControlName="patronus" name="patronus">
 	    </mat-form-field>
 	    <br>
 	    <mat-form-field appearance="fill">
@@ -22,11 +22,12 @@
 	      		 formControlName="age" name="age" type="number">
 	    </mat-form-field>
 	    <br>
-	    <mat-form-field appearance="fill">
-	      <mat-label>Patronus</mat-label>
-	      <input required matInput placeholder="Patronus" [(ngModel)]="newItem.patronus"
-	      		 formControlName="patronus" name="patronus">
-	    </mat-form-field>
+	    <!-- <mat-form-field appearance="fill"> -->
+	      <mat-label>Image: </mat-label>
+	      <!-- <input required matInput placeholder="image" [(ngModel)]="newItem.image"
+	      		 formControlName="image" name="image"> -->
+				   <input type="file" name="fileUpload" multiple="multiple" accept="accept" id="fileUpload" >
+	    <!-- </mat-form-field> -->
 
 	  </form>
     </div>
@@ -34,7 +35,7 @@
     <mat-divider></mat-divider>
 
 
-    <table class="table table-hover">
+    <!-- <table class="table table-hover">
 	    <thead>
 			<tr>
 				<th class="text-center">Nombre</th>							
@@ -47,16 +48,18 @@
 		<tbody>
 
 			<tr *ngFor="let data of myItems;let i = index">
-				<th class="text-center">{{ data.name }}</th>		
-				<th class="text-center">{{ data.house }}</th>
+				<th class="text-center">{{ data.name }}</th>
+				<th class="text-center">{{ data.patronus }}</th>		
+	
 				<th class="text-center">{{ data.age }}</th>
-				<th class="text-center">{{ data.patronus }}</th>
+				<th class="text-center">{{ data.image }}</th>
+				
 			</tr>
 		</tbody>
-	</table>
+	</table> -->
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
-  <button mat-raised-button color="primary" [disabled]="formulario.invalid" (click)="AddItem()">Guardar</button>
+  <button mat-raised-button mat-dialog-close color="primary" [disabled]="form.invalid" (click)="AddItem()" >Guardar</button>
 </div>
 

@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { StudentService } from '../../services/student.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddStudentComponent } from '../add-student/add-student.component';
+import { Router } from '@angular/router';
+import { AddStudentComponent } from '../addStudent/addStudent.component';
 import { Persona } from '../../interfaces/persona';
+import { Student } from '../../interfaces/persona';
 
 @Component({
   selector: 'app-student',
@@ -14,19 +16,25 @@ import { Persona } from '../../interfaces/persona';
 })
 export class StudentComponent implements OnInit, AfterViewInit {
 
+  listStudent: Student[] = []
+
   displayedColumns: string[] = ['name', 'patronus', 'yearOfBirth', 'image'];
   dataSource: MatTableDataSource<Persona>;
   student: Persona[] = [];
   anio: number = 0;
 
   spiner = true;
+
+  @Input() myItem: string;
   
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public studentService: StudentService, public dialog: MatDialog) {
+  constructor(private router: Router,public studentService: StudentService, public dialog: MatDialog) {
   	this.dataSource = new MatTableDataSource(this.student);
+
+
   }
 
   ngOnInit(): void {
@@ -34,9 +42,13 @@ export class StudentComponent implements OnInit, AfterViewInit {
   	this.anio = new Date().getFullYear();
   }
 
+  solicitud () {
+    this.router.navigateByUrl('/studentsNew');
+};
 
   openDialog() {
     this.dialog.open(AddStudentComponent);
+
   }
 
   obtenerEstudiantes(){

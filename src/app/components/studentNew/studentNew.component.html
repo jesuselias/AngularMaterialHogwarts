@@ -1,23 +1,21 @@
 <div class="margen">
 
-  <h2>Profesores</h2>
+  <h2>Nuevos Estudiantes</h2>
+  <br>
 
-  <div *ngIf="spiner" class="center">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </div>
-  
-
+  <br>
   <div>
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input>
     </mat-form-field>
+    <br>
 
     <div class="mat-elevation-z8">
-      <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+      <table mat-table matSort [dataSource]="dataSourceLocal" class="mat-elevation-z8">
 
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
           <td mat-cell *matCellDef="let row"> {{row.name}} </td>
         </ng-container>
 
@@ -28,19 +26,19 @@
         </ng-container>
 
        
-        <ng-container matColumnDef="yearOfBirth">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Año de Nacimiento </th>
-          <td mat-cell *matCellDef="let row"> {{row.yearOfBirth}}</td>
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+          <td mat-cell *matCellDef="let row"> {{row.age}}</td>
         </ng-container>
 
         
         <ng-container matColumnDef="image">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> image </th>
-          <td mat-cell *matCellDef="let row"><img style="border-radius: 30px;" src="{{row.image}}"></td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+          <td mat-cell *matCellDef="let row">{{row.image}}</td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsLocal"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsLocal;"></tr>
 
         
         <tr class="mat-row" *matNoDataRow>
@@ -51,7 +49,8 @@
       <mat-paginator [pageSizeOptions]="[4, 8]"></mat-paginator>
     </div>
   </div>
-
+  
 </div>
+
 
 
