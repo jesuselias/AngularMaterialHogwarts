@@ -1,6 +1,6 @@
-# AngularMaterialHogwart
+## AngularMaterialHogwart
 
-Application that is responsible for displaying the data of students, teachers and study houses, and how they are related, in the table where the records are displayed, it has the functionality of filtering, sorting and paging.
+Application that is in charge of displaying the information of the Hogwarts School of Witchcraft and Wizardry; In which the section of characters is shown where the study house that each student represents, the data of the students, teachers, and how they are related is displayed, the table shows the records and also allows adding a request for new students; It has the filtering, paging and sorting functionality.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
